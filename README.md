@@ -1,9 +1,24 @@
-# Fabric Example Mod
+# FoxGlow
+
+This mod makes foxes glow when they eat Glow Berries. Simple right? This should be in vanilla, anyway you can have it this way now!
+![foxglow](https://user-images.githubusercontent.com/29462910/152817376-40750e89-a189-4517-85f2-3a68552bb4ca.gif)
+
+
+### Configuration
+You can adjust the duration of the glow effect using the gamerule `foxGlowDuration`. It takes one parametere which is the duration in seconds. (Withou decimals)
+
+`/gamerule foxGlowDuration <duration>`
+
+For example, 2 seconds would be
+`/gamerule foxGlowDuration 2`
+
+![fox1](https://user-images.githubusercontent.com/29462910/152815217-8ca8abcf-2dfe-4c20-8235-84013a047c1e.png)
 
 ## Setup
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Just drop it inside your mods folder alongside [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
+You must be using the fabric loader, and not forge.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod is available under the MIT License.
