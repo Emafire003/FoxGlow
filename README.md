@@ -14,6 +14,8 @@ For example, 2 seconds would be
 
 ![fox1](https://user-images.githubusercontent.com/29462910/152815217-8ca8abcf-2dfe-4c20-8235-84013a047c1e.png)
 
+Also, as side note there is also an Italian localization of the gamerule in the World Creation screen.
+
 ## Setup
 
 Just drop it inside your mods folder alongside [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
@@ -24,5 +26,5 @@ You must be using the fabric loader, and not forge.
 This mod is available under the MIT License.
 
 ## Support me
-This really is a stupidly simple mod, but still, if you would like to offer me a coffè, here you go.
+This really is a stupidly simple mod, but still, if you would like to offer me a coffee, here you go.
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S88307C)
