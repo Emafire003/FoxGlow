@@ -22,3 +22,7 @@ You must be using the fabric loader, and not forge.
 ## License
 
 This mod is available under the MIT License.
+
+## Support me
+This really is a stupidly simple mod, but still, if you would like to offer me a coffè, here you go.
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S88307C)
