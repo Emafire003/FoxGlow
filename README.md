@@ -1,6 +1,7 @@
 # FoxGlow
 
 This mod makes foxes glow when they eat Glow Berries. Simple right? This should be in vanilla, anyway you can have it this way now!
+
 ![foxglow](https://user-images.githubusercontent.com/29462910/152817376-40750e89-a189-4517-85f2-3a68552bb4ca.gif)
 
 
@@ -27,4 +28,5 @@ This mod is available under the MIT License.
 
 ## Support me
 This really is a stupidly simple mod, but still, if you would like to offer me a coffee, here you go.
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S88307C)
