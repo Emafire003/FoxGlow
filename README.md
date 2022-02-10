@@ -21,6 +21,7 @@ Also, as side note there also are Italian, French, German and Spanish localizati
 
 Just drop it inside your mods folder alongside [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
 You must be using the fabric loader, and not forge.
+Also this mod can be installed only on the server if you wish, you don't necesserly need it on the client.
 
 ## License
 
@@ -31,4 +32,6 @@ This really is a stupidly simple mod, but still, if you would like to offer me a
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S88307C)
 
-Thanks to [JustFoxx](https://github.com/JustFoxx) for the Polish Translation 
+Thanks to [JustFoxx](https://github.com/JustFoxx) for the Polish Translation
+
+For modpack devs: You are permitted to use this mod without directly asking, but please credit me somewhere, it would help! (Also, i'm kind of a curios person so maybe send me a message when you include it into your modpack and i'd like to check it out)
