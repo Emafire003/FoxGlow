@@ -32,3 +32,5 @@ run/
 .github/*
 build/*
 run/*
+ignorestuff/
+ignorestuff/*
