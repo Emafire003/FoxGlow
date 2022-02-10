@@ -30,3 +30,5 @@ This mod is available under the MIT License.
 This really is a stupidly simple mod, but still, if you would like to offer me a coffee, here you go.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S88307C)
+
+Thanks to [JustFoxx](https://github.com/JustFoxx) for the Polish Translation 
