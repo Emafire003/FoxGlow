@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "emawines.mixins.json"
+    "foxglow.mixins.json"
   ],
 
   "depends": {
