@@ -6,7 +6,7 @@
 
 This mod makes foxes and players glow when they eat Glow Berries. Simple right? This should be in vanilla, anyway you can have it this way now!
 
-![foxglow](https://user-images.githubusercontent.com/29462910/152817376-40750e89-a189-4517-85f2-3a68552bb4ca.gif)
+![foxglow](https://user-images.githubusercontent.com/29462910/153724910-88b14423-4768-4f78-b801-4142d1dffbe9.gif)
 
 
 ### Configuration
