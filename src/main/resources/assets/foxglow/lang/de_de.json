@@ -1,4 +1,5 @@
 {
-  "gamerule.foxGlowDuration": "[FoxGlow] Dauer des Glüheffekts bei Füchsen (Sekunden) "
+  "gamerule.foxGlowDuration": "[FoxGlow] Dauer des Leuchten bei Füchsen (Sekunden) ",
+  "gamerule.doPlayersGlow": "[FoxGlow] Aktiviere den Leuchteffekt von Leuchtbeeren für Spieler. "
 
 }

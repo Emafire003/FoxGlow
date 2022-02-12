@@ -1,4 +1,5 @@
 {
-  "gamerule.foxGlowDuration": "[FoxGlow] Durée de l'effet lumineux sur les renards (secondes) "
+  "gamerule.foxGlowDuration": "[FoxGlow] Durée de l'effet Surbrillance sur les renards (secondes) ",
+  "gamerule.doPlayersGlow": "[FoxGlow]  Activer l'effet Surbillance des baies lumineuses pour les joueurs. "
 
 }

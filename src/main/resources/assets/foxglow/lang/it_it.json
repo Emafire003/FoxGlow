@@ -1,3 +1,4 @@
 {
-  "gamerule.foxGlowDuration": "[FoxGlow] Durata dell'effetto di luminescenza per le volpi (secondi)"
+  "gamerule.foxGlowDuration": "[FoxGlow] Durata dell'effetto di luminescenza per le volpi (secondi)",
+  "gamerule.doPlayersGlow": "[FoxGlow] Abilita l'effetto di luminescenza delle bacche luminose per i giocatori."
 }

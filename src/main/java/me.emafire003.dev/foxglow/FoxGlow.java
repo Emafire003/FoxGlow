@@ -9,16 +9,20 @@ public class FoxGlow implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
-	public String MOD_ID = "foxglow";
+	public static String MOD_ID = "foxglow";
 
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		//CrowdinTranslate.downloadTranslations(MOD_ID, MOD_ID);
 	}
 
 	public static final GameRules.Key<GameRules.IntRule> FOXGLOW_DURATION =
 			GameRuleRegistry.register("foxGlowDuration", GameRules.Category.MOBS, GameRuleFactory.createIntRule(10));
+
+	public static final GameRules.Key<GameRules.BooleanRule> PLAYERGLOW =
+			GameRuleRegistry.register("doPlayersGlow", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
 
 }

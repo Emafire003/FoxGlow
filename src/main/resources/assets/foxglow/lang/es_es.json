@@ -1,4 +1,6 @@
 {
-  "gamerule.foxGlowDuration": "[FoxGlow] Duración del efecto de brillo en los zorros (segundos)"
+  "gamerule.foxGlowDuration": "[FoxGlow] Duración del efecto de Luminiscencia en los zorros (segundos)",
+  "gamerule.doPlayersGlow": "[FoxGlow] Habilita el efecto de Luminiscencia de las bayas luminosas para los jugadores. "
+
 
 }
