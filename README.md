@@ -32,6 +32,6 @@ This really is a stupidly simple mod, but still, if you would like to offer me a
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S88307C)
 
-Thanks to [JustFoxx](https://github.com/JustFoxx) for the Polish Translation
+Thanks to [JustFoxx](https://github.com/JustFoxx),[Dqu1J](https://github.com/Dqu1J) for Translations
 
 For modpack devs: You are permitted to use this mod without directly asking, but please credit me somewhere, it would help! (Also, i'm kind of a curios person so maybe send me a message when you include it into your modpack and i'd like to check it out)
