@@ -26,7 +26,7 @@ For example, to disable the effect
 
 ![fox1](https://user-images.githubusercontent.com/29462910/152815217-8ca8abcf-2dfe-4c20-8235-84013a047c1e.png)
 
-Also, as side note there also are Italian, French, German and Spanish localizations of the gamerules in the World Creation screen.
+Also, as side note there also are some localizations of the gamerules in the World Creation screen.
 
 ## Setup
 
