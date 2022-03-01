@@ -1,4 +1,6 @@
 {
   "gamerule.foxGlowDuration": "[FoxGlow] Duration of the glowing effect on foxes (seconds)",
-  "gamerule.doPlayersGlow": "[FoxGlow] Enable the glow effect of glow berries for players"
+  "gamerule.doPlayersGlow": "[FoxGlow] Enable the glow effect of glow berries for players",
+  "gamerule.customColorGlow": "[FoxGlow] Enable a custom color for the glow effect for players & foxes (#eda205)",
+  "gamerule.randomColorGlow": "[FoxGlow] Use a random custom color for the glow effect if customColorGlow is enabled"
 }
