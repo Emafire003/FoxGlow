@@ -36,3 +36,4 @@ build/*
 run/*
 ignorestuff/
 ignorestuff/*
+lib/*

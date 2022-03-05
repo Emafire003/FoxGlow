@@ -36,8 +36,8 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//ColoredGlowLib
-	modImplementation "maven.modrinth:coloredglowlib:0.3.0"
-	include "maven.modrinth:coloredglowlib:0.3.0"
+	modImplementation "maven.modrinth:coloredglowlib:1.0.0"
+	include "maven.modrinth:coloredglowlib:1.0.0"
 
 	//Crowdin
 	//modImplementation "de.guntram.mcmod:crowdin-translate:1.2"
@@ -53,7 +53,8 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17.
+	// Minecraft 1.18 (1.18-pre2) upwards uses Java 17. yeah. i know, but i am supporting 1.17.1 as well so...
+	//yes i'm talking to a comment, problems with that? good.
 	it.options.release = 16
 }
 

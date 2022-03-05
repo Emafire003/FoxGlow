@@ -2,6 +2,7 @@ package me.emafire003.dev.foxglow.mixin;
 
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.util.Color;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -31,7 +32,10 @@ public abstract class FoxMixin extends AnimalEntity {
             this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
 
             if(world.getGameRules().getBoolean(CUSTOM_COLOR_GLOW)){
-                if(world.getGameRules().getBoolean(RANDOM_COLOR_GLOW)){
+                if(random.nextInt(1005) == 1){
+                    ColoredGlowLib.setRainbowColorToEntity(((FoxEntity)(Object)this), true);
+                }
+                else if(world.getGameRules().getBoolean(RANDOM_COLOR_GLOW)){
                     ColoredGlowLib.setColorToEntityType(this.getType(),new Color(random.nextInt(254)+1, random.nextInt(254)+1, random.nextInt(254)+1));
                 }else{
                     ColoredGlowLib.setColorToEntityType(this.getType(), foxcolor);
