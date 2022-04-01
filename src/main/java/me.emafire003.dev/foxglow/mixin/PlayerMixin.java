@@ -2,6 +2,7 @@ package me.emafire003.dev.foxglow.mixin;
 
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.util.Color;
+import me.emafire003.dev.foxglow.FoxGlow;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -22,6 +23,7 @@ import static me.emafire003.dev.foxglow.FoxGlow.*;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerMixin extends LivingEntity {
 
+    private PlayerEntity player = ((PlayerEntity)(Object)this);
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -41,14 +43,18 @@ public abstract class PlayerMixin extends LivingEntity {
 
                     //Checks if it should apply a random color
                     if (sworld.getGameRules().getBoolean(RANDOM_COLOR_GLOW)) {
-                        ColoredGlowLib.setColorToEntityType(this.getType(), new Color(random.nextInt(254) + 1, random.nextInt(254) + 1, random.nextInt(254) + 1));
-                    } else {
-                        ColoredGlowLib.setColorToEntityType(this.getType(), foxcolor);
+                        ColoredGlowLib.setColorToEntity(player, new Color(random.nextInt(254) + 1, random.nextInt(254) + 1, random.nextInt(254) + 1));
+                    }else if(!ColoredGlowLib.hasEntityColor(player)){
+                        ColoredGlowLib.setColorToEntity(player, foxcolor);
+                    }
+                    if(FoxGlow.getAP1()){
+                        this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
+                        this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
                     }
 
                 }else if(!ColoredGlowLib.getEntityTypeColor(this.getType()).equals(Color.getWhiteColor())){
                     //This is done because the entity would still have another color selected otherwise.
-                    ColoredGlowLib.setColorToEntityType(this.getType(), Color.getWhiteColor());
+                    ColoredGlowLib.setColorToEntity(player, Color.getWhiteColor());
                 }
 
             }

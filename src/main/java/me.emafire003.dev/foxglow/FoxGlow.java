@@ -5,8 +5,13 @@ import me.emafire003.dev.coloredglowlib.util.Color;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.world.GameRules;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Random;
 
 public class FoxGlow implements ModInitializer {
@@ -15,15 +20,30 @@ public class FoxGlow implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static String MOD_ID = "foxglow";
 	public static Color foxcolor = new Color(237, 162, 5);
+	private static boolean april1_on = false;
+	private static boolean cgl_loaded = false;
+
+	public static Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-		//CrowdinTranslate.downloadTranslations(MOD_ID, MOD_ID);
 		ColoredGlowLib.setPerEntityTypeColor(true);
+		LocalDate currentDate = LocalDate.now();
+		int day = currentDate.getDayOfMonth();
+		Month month = currentDate.getMonth();
+		if(month.equals(Month.APRIL) && day == 1){
+			april1_on = true;
+			LOGGER.info("Yes, april 1st");
+		}
+		cgl_loaded = FabricLoader.getInstance().isModLoaded("coloredglowlib");
+	}
 
+	public static boolean getAP1(){
+		return april1_on;
+	}
+
+	public static boolean getCGL(){
+		return cgl_loaded;
 	}
 
 	public static final GameRules.Key<GameRules.IntRule> FOXGLOW_DURATION =
