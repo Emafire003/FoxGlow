@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "FoxGlow",
-  "description": "When foxes eat glow berries they should glow, shouldn't they?",
+  "description": "When foxes or players eat glow berries they should glow, shouldn't they?",
   "authors": [
     "Emafire003"
   ],

@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.Random;
 
 public class FoxGlow implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
