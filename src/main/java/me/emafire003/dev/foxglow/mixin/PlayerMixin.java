@@ -3,6 +3,7 @@ package me.emafire003.dev.foxglow.mixin;
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.FoxGlow;
+import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -39,22 +40,22 @@ public abstract class PlayerMixin extends LivingEntity {
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 0, true, false));
 
                 //checks if custom color glow is enabled
-                if(sworld.getGameRules().getBoolean(CUSTOM_COLOR_GLOW)) {
+                if(sworld.getGameRules().getBoolean(CUSTOM_COLOR_GLOW) && FoxGlow.getCGL()) {
 
                     //Checks if it should apply a random color
                     if (sworld.getGameRules().getBoolean(RANDOM_COLOR_GLOW)) {
-                        ColoredGlowLib.setColorToEntity(player, new Color(random.nextInt(254) + 1, random.nextInt(254) + 1, random.nextInt(254) + 1));
-                    }else if(!ColoredGlowLib.hasEntityColor(player)){
-                        ColoredGlowLib.setColorToEntity(player, foxcolor);
+                        ColoredGlowLibCompat.getLib().setColorToEntity(player, new Color(random.nextInt(254) + 1, random.nextInt(254) + 1, random.nextInt(254) + 1));
+                    }else if(!ColoredGlowLibCompat.getLib().hasEntityColor(player)){
+                        ColoredGlowLibCompat.getLib().setColorToEntity(player, foxcolor);
                     }
                     if(FoxGlow.getAP1()){
                         this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
                         this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
                     }
 
-                }else if(!ColoredGlowLib.getEntityTypeColor(this.getType()).equals(Color.getWhiteColor())){
+                }else if(!ColoredGlowLibCompat.getLib().getEntityTypeColor(this.getType()).equals(Color.getWhiteColor())){
                     //This is done because the entity would still have another color selected otherwise.
-                    ColoredGlowLib.setColorToEntity(player, Color.getWhiteColor());
+                    ColoredGlowLibCompat.getLib().setColorToEntity(player, Color.getWhiteColor());
                 }
 
             }

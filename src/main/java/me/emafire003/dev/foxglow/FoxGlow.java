@@ -2,6 +2,7 @@ package me.emafire003.dev.foxglow;
 
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.util.Color;
+import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
@@ -26,7 +27,6 @@ public class FoxGlow implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ColoredGlowLib.setPerEntityTypeColor(true);
 		LocalDate currentDate = LocalDate.now();
 		int day = currentDate.getDayOfMonth();
 		Month month = currentDate.getMonth();
@@ -35,6 +35,9 @@ public class FoxGlow implements ModInitializer {
 			LOGGER.info("Yes, april 1st");
 		}
 		cgl_loaded = FabricLoader.getInstance().isModLoaded("coloredglowlib");
+		if(cgl_loaded){
+			ColoredGlowLibCompat.getLib().setPerEntityTypeColor(true);
+		}
 	}
 
 	public static boolean getAP1(){
