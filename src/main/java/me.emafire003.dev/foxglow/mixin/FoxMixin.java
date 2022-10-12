@@ -3,6 +3,7 @@ package me.emafire003.dev.foxglow.mixin;
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.FoxGlow;
+import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -34,24 +35,24 @@ public abstract class FoxMixin extends AnimalEntity {
         if(this.getEquippedStack(EquipmentSlot.MAINHAND).getItem().equals(Items.GLOW_BERRIES)){
             this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
 
-            //if(FoxGlow.getCGL()){
+            if(FoxGlow.getCGL()){
                 if(world.getGameRules().getBoolean(CUSTOM_COLOR_GLOW)){
                     if(random.nextInt(1005) == 1){
-                        ColoredGlowLib.setRainbowColorToEntity(((FoxEntity)(Object)this), true);
+                        ColoredGlowLibCompat.getLib().setRainbowColorToEntity(((FoxEntity)(Object)this), true);
                     }else if(world.getGameRules().getBoolean(RANDOM_COLOR_GLOW)){
-                        ColoredGlowLib.setColorToEntityType(this.getType(),new Color(random.nextInt(254)+1, random.nextInt(254)+1, random.nextInt(254)+1));
+                        ColoredGlowLibCompat.getLib().setColorToEntityType(this.getType(),new Color(random.nextInt(254)+1, random.nextInt(254)+1, random.nextInt(254)+1));
                     }else{
-                        ColoredGlowLib.setColorToEntityType(this.getType(), foxcolor);
+                        ColoredGlowLibCompat.getLib().setColorToEntityType(this.getType(), foxcolor);
                     }
                     if(FoxGlow.getAP1()){
                         this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
                         this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
                     }
-                }else if(!ColoredGlowLib.getEntityTypeColor(this.getType()).equals(Color.getWhiteColor())){
+                }else if(!ColoredGlowLibCompat.getLib().getEntityTypeColor(this.getType()).equals(Color.getWhiteColor())){
                     //This is done because the entity would still have another color selected otherwise.
-                    ColoredGlowLib.setColorToEntityType(this.getType(), Color.getWhiteColor());
+                    ColoredGlowLibCompat.getLib().setColorToEntityType(this.getType(), Color.getWhiteColor());
                 }
-            //}
+            }
 
         }
     }

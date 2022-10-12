@@ -5,7 +5,9 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "FoxMixin",
-    "PlayerMixin"
+    "PlayerMixin",
+    "FoodComponentsBerriesMixin",
+    "GetBerriesComponentMixin"
   ],
   "client": [
   ],

@@ -2,10 +2,17 @@ package me.emafire003.dev.foxglow;
 
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.util.Color;
+import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
+import me.emafire003.dev.foxglow.mixin.FoodComponentsBerriesMixin;
+import me.emafire003.dev.foxglow.mixin.GetBerriesComponentMixin;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.FoodComponents;
+import net.minecraft.item.Items;
 import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +33,9 @@ public class FoxGlow implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ColoredGlowLib.setPerEntityTypeColor(true);
+		FoodComponent berry = new FoodComponent.Builder().alwaysEdible().hunger(2).saturationModifier(0.1F).build();
+		FoodComponent alwaysEdibleBerry = (new FoodComponent.Builder()).hunger(2).saturationModifier(0.1F).alwaysEdible().build();
+		FoodComponentsBerriesMixin.setEdible(berry);
 		LocalDate currentDate = LocalDate.now();
 		int day = currentDate.getDayOfMonth();
 		Month month = currentDate.getMonth();
@@ -35,6 +44,9 @@ public class FoxGlow implements ModInitializer {
 			LOGGER.info("Yes, april 1st");
 		}
 		cgl_loaded = FabricLoader.getInstance().isModLoaded("coloredglowlib");
+		if(cgl_loaded){
+			ColoredGlowLibCompat.getLib().setPerEntityTypeColor(true);
+		}
 	}
 
 	public static boolean getAP1(){
