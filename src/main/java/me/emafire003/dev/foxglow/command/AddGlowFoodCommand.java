@@ -4,6 +4,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import me.emafire003.dev.foxglow.FoxGlow;
+import me.emafire003.dev.foxglow.util.DataSaver;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.ItemStackArgumentType;
 import net.minecraft.item.Item;
@@ -31,6 +32,7 @@ public class AddGlowFoodCommand implements FoxGlowCommand {
                 FoxGlow.addGlowFood(item);
                 source.sendFeedback(Text.literal("§6[FoxGlow] §fThe item §a" + item.toString() + " §fwill now make foxes/player glow when eaten!"), false);
             }
+            DataSaver.write();
         }catch (Exception e){
             source.sendError(Text.literal("There has been an error while performing the command:"));
             source.sendError(Text.literal(e.toString()));

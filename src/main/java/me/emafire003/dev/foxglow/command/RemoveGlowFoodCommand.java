@@ -4,6 +4,7 @@ import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.tree.LiteralCommandNode;
 import me.emafire003.dev.foxglow.FoxGlow;
+import me.emafire003.dev.foxglow.util.DataSaver;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.ItemStackArgumentType;
 import net.minecraft.item.Item;
@@ -28,10 +29,11 @@ public class RemoveGlowFoodCommand implements FoxGlowCommand {
         try{
             if(FoxGlow.getGlowFoodsList().contains(Registry.ITEM.getId(item))){
                 FoxGlow.removeGlowFood(item);
-                source.sendFeedback(Text.literal("§6[FoxGlow] §fThe item §c" + item.getName() + " §fwill no longer make foxes/player glow when eaten!"), false);
+                source.sendFeedback(Text.literal("§6[FoxGlow] §fThe item §c" + item.toString() + " §fwill no longer make foxes/player glow when eaten!"), false);
             }else{
-                source.sendFeedback(Text.literal("§6[FoxGlow] §cThe item §b" + item.getName() + " §cdoes not make foxes/player glow when eaten already!"), false);
+                source.sendFeedback(Text.literal("§6[FoxGlow] §cThe item §b" + item.toString() + " §cdoes not make foxes/player glow when eaten already!"), false);
             }
+            DataSaver.write();
         }catch (Exception e){
             source.sendError(Text.literal("There has been an error while performing the command:"));
             source.sendError(Text.literal(e.toString()));

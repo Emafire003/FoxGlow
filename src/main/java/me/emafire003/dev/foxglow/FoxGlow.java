@@ -53,6 +53,7 @@ public class FoxGlow implements ModInitializer {
 		if(cgl_loaded){
 			ColoredGlowLibCompat.getLib().setPerEntityTypeColor(true);
 		}
+		glowFoodsList.add(Registry.ITEM.getId(Items.GLOW_BERRIES));
 		getValuesFromFile();
 		CommandRegistrationCallback.EVENT.register(FoxGlowCommands::registerCommands);
 	}
@@ -81,14 +82,12 @@ public class FoxGlow implements ModInitializer {
 			LOGGER.info("Getting variables values from the data file...");
 			DataSaver.createFile();
 			List<Identifier> food_list = DataSaver.getGlowFoodsList();
-			glowFoodsList.add(Registry.ITEM.getId(Items.GLOW_BERRIES));
 			if(food_list != null && !food_list.isEmpty()){
 				//This is done because I need to initialize the glowFoodList map with the glow berries by default,
 				//but if just added all the entries each time I would be also adding the glow berries, which
 				//would continue to multiply inside the list
-				if(food_list.contains(Registry.ITEM.getId(Items.GLOW_BERRIES))){
-					food_list.remove(Registry.ITEM.getId(Items.GLOW_BERRIES));
-				}
+				food_list.remove(Registry.ITEM.getId(Items.GLOW_BERRIES));
+
 				glowFoodsList.addAll(food_list);
 			}
 			LOGGER.info("Done!");
