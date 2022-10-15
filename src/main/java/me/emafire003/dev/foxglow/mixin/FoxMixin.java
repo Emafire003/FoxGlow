@@ -29,8 +29,8 @@ public abstract class FoxMixin extends AnimalEntity {
 
     @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;finishUsing(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/item/ItemStack;"))
     protected void injectInTickMovementMethod(CallbackInfo ci) {
-        //if(Registry.ITEM.getId().toString())
-        if(this.getEquippedStack(EquipmentSlot.MAINHAND).getItem().equals(Items.GLOW_BERRIES)){
+
+        if(FoxGlow.getGlowFoodsList().contains(Registry.ITEM.getId(this.getEquippedStack(EquipmentSlot.MAINHAND).getItem()))){
             this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
 
             if(FoxGlow.getCGL()){

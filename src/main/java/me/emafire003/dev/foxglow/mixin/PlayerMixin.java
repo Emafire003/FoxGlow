@@ -5,6 +5,7 @@ import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.FoxGlow;
 import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -12,6 +13,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,8 +37,8 @@ public abstract class PlayerMixin extends LivingEntity {
         if(world instanceof ServerWorld){
             ServerWorld sworld = (ServerWorld) world;
 
-            //Checks if the item eatean is the glowberry item & if the playerglow is active
-            if(stack.getItem().equals(Items.GLOW_BERRIES) && sworld.getGameRules().getBoolean(PLAYERGLOW)){
+            //Checks if the item eaten is the glowberry/a glowfood item & if the playerglow is active
+            if(FoxGlow.getGlowFoodsList().contains(Registry.ITEM.getId(stack.getItem())) && sworld.getGameRules().getBoolean(PLAYERGLOW)){
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 0, true, false));
 
                 //checks if custom color glow is enabled
