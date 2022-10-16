@@ -1,7 +1,5 @@
 package me.emafire003.dev.foxglow;
 
-import me.emafire003.dev.coloredglowlib.command.CGLCommands;
-import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.command.FoxGlowCommands;
 import me.emafire003.dev.foxglow.util.DataSaver;
 import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
@@ -31,7 +29,6 @@ public class FoxGlow implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static String MOD_ID = "foxglow";
-	public static Color foxcolor = new Color(237, 162, 5);
 	private static boolean april1_on = false;
 	private static boolean cgl_loaded = false;
 	public static final Path PATH = FabricLoader.getInstance().getConfigDir();

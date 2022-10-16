@@ -1,17 +1,14 @@
 package me.emafire003.dev.foxglow.mixin;
 
-import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
-import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.FoxGlow;
+import me.emafire003.dev.foxglow.compat.CGLColorCompat;
 import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
@@ -22,6 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 
 import static me.emafire003.dev.foxglow.FoxGlow.*;
+import static me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat.foxcolor;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerMixin extends LivingEntity {
@@ -46,7 +44,7 @@ public abstract class PlayerMixin extends LivingEntity {
 
                     //Checks if it should apply a random color
                     if (sworld.getGameRules().getBoolean(RANDOM_COLOR_GLOW)) {
-                        ColoredGlowLibCompat.getLib().setColorToEntity(player, new Color(random.nextInt(254) + 1, random.nextInt(254) + 1, random.nextInt(254) + 1));
+                        ColoredGlowLibCompat.getLib().setColorToEntity(player, CGLColorCompat.randomColor(random));
                     }else if(!ColoredGlowLibCompat.getLib().hasEntityColor(player)){
                         ColoredGlowLibCompat.getLib().setColorToEntity(player, foxcolor);
                     }
@@ -55,9 +53,9 @@ public abstract class PlayerMixin extends LivingEntity {
                         this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
                     }
 
-                }else if(!ColoredGlowLibCompat.getLib().getEntityTypeColor(this.getType()).equals(Color.getWhiteColor())){
+                }else if(!ColoredGlowLibCompat.getLib().getEntityTypeColor(this.getType()).equals(CGLColorCompat.getWhiteColor())){
                     //This is done because the entity would still have another color selected otherwise.
-                    ColoredGlowLibCompat.getLib().setColorToEntity(player, Color.getWhiteColor());
+                    ColoredGlowLibCompat.getLib().setColorToEntity(player, CGLColorCompat.getWhiteColor());
                 }
 
             }
