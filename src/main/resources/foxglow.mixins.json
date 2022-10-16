@@ -1,15 +1,20 @@
 {
   "required": true,
-  "minVersion": "0.8",
   "package": "me.emafire003.dev.foxglow.mixin",
   "compatibilityLevel": "JAVA_16",
+  "refmap": "coloredglowlib.refmap.json",
   "mixins": [
     "FoxMixin",
     "PlayerMixin"
   ],
-  "client": [
+  "server":[
+
+  ],
+  "client":[
+
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "minVersion": "0.8.4"
 }

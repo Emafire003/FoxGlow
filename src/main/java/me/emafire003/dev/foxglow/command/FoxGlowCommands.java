@@ -2,35 +2,33 @@ package me.emafire003.dev.foxglow.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.LiteralCommandNode;
-import me.emafire003.dev.coloredglowlib.command.CGLCommand;
-import me.emafire003.dev.coloredglowlib.command.ConfigCommand;
-import me.emafire003.dev.coloredglowlib.command.SetGlowColorCommand;
-import net.minecraft.command.CommandRegistryAccess;
-import net.minecraft.server.command.CommandManager;
-import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.commands.CommandBuildContext;
+import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.commands.Commands;
 
 public class FoxGlowCommands {
 
-
-    //Based on Factions' code https://github.com/ickerio/factions
-    public static void registerCommands(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess registryAccess, CommandManager.RegistrationEnvironment environment) {
-        LiteralCommandNode<ServerCommandSource> fox_commands = CommandManager
+    //Originally based on Factions' code https://github.com/ickerio/factions, modified by me (Emafire003) a lot to make it compatible with forge
+    public FoxGlowCommands(CommandDispatcher<CommandSourceStack> dispatcher, CommandBuildContext buildContext) {
+        LiteralCommandNode<CommandSourceStack> fox_commands = Commands
                 .literal("foxglow")
                 .requires(serverCommandSource -> {
-                    return serverCommandSource.hasPermissionLevel(2);
+                    return serverCommandSource.hasPermission(2);
                 })
                 .build();
 
         dispatcher.getRoot().addChild(fox_commands);
 
         FoxGlowCommand[] commands = new FoxGlowCommand[] {
-                new AddGlowFoodCommand(registryAccess),
-                new RemoveGlowFoodCommand(registryAccess),
+                new AddGlowFoodCommand(buildContext),
+                new RemoveGlowFoodCommand(buildContext),
                 new DataReloadCommand()
         };
 
         for (FoxGlowCommand command : commands) {
             fox_commands.addChild(command.getNode());
         }
+
     }
+
 }

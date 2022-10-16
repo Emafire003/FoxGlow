@@ -2,11 +2,8 @@ package me.emafire003.dev.foxglow.util;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import me.emafire003.dev.coloredglowlib.ColoredGlowLibMod;
-import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.FoxGlow;
-import net.minecraft.entity.EntityType;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.*;
@@ -72,7 +69,7 @@ public class DataSaver {
 
 
 
-    public static @Nullable List<Identifier> getGlowFoodsList(){
+    public static @Nullable List<ResourceLocation> getGlowFoodsList(){
         try {
             FileReader file = new FileReader(PATH);
             String line = getFileLine(2, file);
