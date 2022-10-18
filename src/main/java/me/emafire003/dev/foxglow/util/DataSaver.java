@@ -2,10 +2,7 @@ package me.emafire003.dev.foxglow.util;
 
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
-import me.emafire003.dev.coloredglowlib.ColoredGlowLibMod;
-import me.emafire003.dev.coloredglowlib.util.Color;
 import me.emafire003.dev.foxglow.FoxGlow;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
@@ -13,7 +10,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
-import static me.emafire003.dev.coloredglowlib.ColoredGlowLibMod.LOGGER;
+import static me.emafire003.dev.foxglow.FoxGlow.LOGGER;
 
 public class DataSaver {
 

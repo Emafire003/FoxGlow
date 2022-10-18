@@ -22,8 +22,6 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-import static me.emafire003.dev.coloredglowlib.ColoredGlowLibMod.LOGGER;
-
 public class FoxGlow implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -31,6 +29,7 @@ public class FoxGlow implements ModInitializer {
 	public static String MOD_ID = "foxglow";
 	private static boolean april1_on = false;
 	private static boolean cgl_loaded = false;
+	public static String foxcolor = "eda304";
 	public static final Path PATH = FabricLoader.getInstance().getConfigDir();
 	private static List<Identifier> glowFoodsList = new ArrayList<>();
 
@@ -38,6 +37,7 @@ public class FoxGlow implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
 		LOGGER.info("Initializing!");
 		LocalDate currentDate = LocalDate.now();
 		int day = currentDate.getDayOfMonth();

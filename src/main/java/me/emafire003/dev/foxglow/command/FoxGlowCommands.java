@@ -2,9 +2,6 @@ package me.emafire003.dev.foxglow.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.tree.LiteralCommandNode;
-import me.emafire003.dev.coloredglowlib.command.CGLCommand;
-import me.emafire003.dev.coloredglowlib.command.ConfigCommand;
-import me.emafire003.dev.coloredglowlib.command.SetGlowColorCommand;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
