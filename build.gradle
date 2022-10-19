@@ -18,7 +18,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = "${mc_version}-${mod_version}"
+version = "${mod_version}-${mc_version}"
 group = 'me.emafire003.dev' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = project.modid
 

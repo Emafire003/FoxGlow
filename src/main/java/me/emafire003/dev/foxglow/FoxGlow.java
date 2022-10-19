@@ -2,11 +2,9 @@ package me.emafire003.dev.foxglow;
 
 import me.emafire003.dev.foxglow.util.DataSaver;
 import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
-import me.emafire003.dev.foxglow.util.Rule;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModList;
@@ -37,6 +35,11 @@ public class FoxGlow {
 	private static List<ResourceLocation> glowFoodsList = new ArrayList<>();
 
 	public static Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+	public static int FOXGLOW_DURATION = 10;
+	public static boolean PLAYERGLOW = true;
+	public static boolean CUSTOM_COLOR_GLOW = true;
+	public static boolean RANDOM_COLOR_GLOW = false;
 
 	public FoxGlow() {
 		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -92,6 +95,10 @@ public class FoxGlow {
 
 				glowFoodsList.addAll(food_list);
 			}
+			FOXGLOW_DURATION = DataSaver.getFoxglowDuration();
+			PLAYERGLOW = DataSaver.getPlayerGlow();
+			CUSTOM_COLOR_GLOW = DataSaver.getCustomColorGlow();
+			RANDOM_COLOR_GLOW = DataSaver.getRandomColorGlow();
 			LOGGER.info("Done!");
 		}catch (Exception e){
 			LOGGER.error("There was an error while getting the values from the file onto the mod");
@@ -132,18 +139,6 @@ public class FoxGlow {
 	public static List<ResourceLocation> getGlowFoodsList(){
 		return glowFoodsList;
 	}
-
-	public static final Rule.IntegerRule FOXGLOW_DURATION =
-			new Rule.IntegerRule("foxGlowDuration", GameRules.Category.MOBS, 10);
-
-	public static final Rule.BooleanRule PLAYERGLOW =
-			new Rule.BooleanRule("doPlayersGlow", GameRules.Category.PLAYER, true);
-
-	public static final Rule.BooleanRule CUSTOM_COLOR_GLOW =
-			new Rule.BooleanRule("customColorGlow", GameRules.Category.MISC, true);
-
-	public static final Rule.BooleanRule RANDOM_COLOR_GLOW =
-			new Rule.BooleanRule("randomColorGlow", GameRules.Category.MISC, false);
 
 
 }

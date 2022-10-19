@@ -3,14 +3,13 @@ package me.emafire003.dev.foxglow.compat;
 import me.emafire003.dev.coloredglowlib.ColoredGlowLib;
 import me.emafire003.dev.coloredglowlib.ColoredGlowLibMod;
 import me.emafire003.dev.coloredglowlib.util.Color;
+import me.emafire003.dev.foxglow.FoxGlow;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 
 import java.util.Random;
 
-import static me.emafire003.dev.foxglow.FoxGlow.CUSTOM_COLOR_GLOW;
-import static me.emafire003.dev.foxglow.FoxGlow.RANDOM_COLOR_GLOW;
 
 public class ColoredGlowLibCompat {
 
@@ -31,11 +30,13 @@ public class ColoredGlowLibCompat {
     }
 
     public static void doColoredGlowLibStuff(Level world, Entity entity){
-        if(world.getGameRules().getBoolean(CUSTOM_COLOR_GLOW.getRule())){
+
+        if(FoxGlow.CUSTOM_COLOR_GLOW){
             Random random = new Random();
             if(random.nextInt(1005) == 1){
                 coloredGlowLib.setRainbowColorToEntity(entity, true);
-            }else if(world.getGameRules().getBoolean(RANDOM_COLOR_GLOW.getRule())){
+            }//else if(world.getGameRules().getBoolean(RANDOM_COLOR_GLOW.getRule())){
+            else if(FoxGlow.RANDOM_COLOR_GLOW){
                 coloredGlowLib.setColorToEntityType(entity.getType(), ColoredGlowLibCompat.randomColor());
             }else{
                 coloredGlowLib.setColorToEntityType(entity.getType(), foxcolor);

@@ -22,7 +22,9 @@ public class FoxGlowCommands {
         FoxGlowCommand[] commands = new FoxGlowCommand[] {
                 new AddGlowFoodCommand(buildContext),
                 new RemoveGlowFoodCommand(buildContext),
-                new DataReloadCommand()
+                new DataReloadCommand(),
+                new GetGamerulesCommand(),
+                new SetGamerulesCommand()
         };
 
         for (FoxGlowCommand command : commands) {

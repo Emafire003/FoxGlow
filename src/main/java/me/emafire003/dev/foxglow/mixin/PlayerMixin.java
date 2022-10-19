@@ -22,8 +22,6 @@ import static me.emafire003.dev.foxglow.FoxGlow.*;
 @Mixin(Player.class)
 public abstract class PlayerMixin extends LivingEntity {
 
-    private Player player = ((Player)(Object)this);
-
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, Level world) {
         super(entityType, world);
     }
@@ -36,17 +34,17 @@ public abstract class PlayerMixin extends LivingEntity {
             ServerLevel sworld = (ServerLevel) world;
 
             //Checks if the item eaten is the glowberry/a glowfood item & if the playerglow is active
-            if(FoxGlow.getGlowFoodsList().contains(ForgeRegistries.ITEMS.getKey(stack.getItem())) && sworld.getGameRules().getBoolean(PLAYERGLOW.getRule())){
-                this.addEffect(new MobEffectInstance(MobEffects.GLOWING, this.level.getGameRules().getInt(FOXGLOW_DURATION.getRule())*20, 0, true, false));
+            if(FoxGlow.getGlowFoodsList().contains(ForgeRegistries.ITEMS.getKey(stack.getItem())) && PLAYERGLOW){
+                this.addEffect(new MobEffectInstance(MobEffects.GLOWING, FOXGLOW_DURATION*20, 0, true, false));
 
                 //checks if custom color glow is enabled
                 if(FoxGlow.getCGL()) {
-                    ColoredGlowLibCompat.doColoredGlowLibStuff(level, ((Player)(Object)this));
+                    ColoredGlowLibCompat.doColoredGlowLibStuff(((Player)(Object)this).getCommandSenderWorld(), ((Player)(Object)this));
 
                 }
                 if(FoxGlow.getAP1()){
-                    this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, this.level.getGameRules().getInt(FOXGLOW_DURATION.getRule())*20, 1, true, false));
-                    this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, this.level.getGameRules().getInt(FOXGLOW_DURATION.getRule())*20*2, 200, true, false));
+                    this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, FOXGLOW_DURATION*20, 1, true, false));
+                    this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, FOXGLOW_DURATION*20*2, 200, true, false));
                 }
 
             }

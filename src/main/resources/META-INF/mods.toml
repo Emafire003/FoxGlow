@@ -19,7 +19,7 @@ modId="foxglow" #mandatory
 # The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
 # ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
 # see the associated build.gradle script for how to populate this completely automatically during a build
-version="1.5.0-forge1.19" #mandatory
+version="1.5.0-forge" #mandatory
  # A display name for the mod
 displayName="FoxGlow" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
@@ -46,7 +46,7 @@ This mod makes foxes and/or players glow when they eat glow berries or other glo
 
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.coloredglowlib]] #optional
+[[dependencies.foxglow]] #optional
     # the modid of the dependency
     modId="forge" #mandatory
     # Does this dependency have to exist - if not, ordering below must be specified
@@ -57,8 +57,19 @@ This mod makes foxes and/or players glow when they eat glow berries or other glo
     ordering="NONE"
     # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
+[[dependencies.foxglow]] #optional
+    # the modid of the dependency
+    modId="coloredglowlib" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=false #mandatory
+    # The version range of the dependency
+    versionRange="[2.0.2,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="BEFORE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="SERVER"
 # Here's another dependency
-[[dependencies.coloredglowlib]]
+[[dependencies.foxglow]]
     modId="minecraft"
     mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version

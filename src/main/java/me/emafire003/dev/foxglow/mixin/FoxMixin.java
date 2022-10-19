@@ -29,13 +29,15 @@ public abstract class FoxMixin extends Animal {
     protected void injectInTickMovementMethod(CallbackInfo ci) {
 
         if(FoxGlow.getGlowFoodsList().contains(ForgeRegistries.ITEMS.getKey(this.getMainHandItem().getItem()))){
-            this.addEffect(new MobEffectInstance(MobEffects.GLOWING, this.level.getGameRules().getInt(FOXGLOW_DURATION.getRule())*20, 1, true, false));
+            this.addEffect(new MobEffectInstance(MobEffects.GLOWING, FOXGLOW_DURATION*20, 1, true, false));
+
             if(FoxGlow.getCGL()){
-                ColoredGlowLibCompat.doColoredGlowLibStuff(level, ((Fox)(Object)this));
+                ColoredGlowLibCompat.doColoredGlowLibStuff(this.level, ((Fox)(Object)this));
             }
             if(FoxGlow.getAP1()){
-                this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, this.level.getGameRules().getInt(FOXGLOW_DURATION.getRule())*20, 1, true, false));
-                this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, this.level.getGameRules().getInt(FOXGLOW_DURATION.getRule())*20*2, 200, true, false));
+                this.addEffect(new MobEffectInstance(MobEffects.LEVITATION, FOXGLOW_DURATION*20, 1, true, false));
+                this.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, FOXGLOW_DURATION*20*2, 200, true, false));
+
             }
 
         }

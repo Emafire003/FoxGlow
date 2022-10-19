@@ -10,7 +10,7 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
-import static me.emafire003.dev.coloredglowlib.ColoredGlowLibMod.LOGGER;
+import static me.emafire003.dev.foxglow.FoxGlow.LOGGER;
 
 public class DataSaver {
 
@@ -18,6 +18,13 @@ public class DataSaver {
     @SuppressWarnings("all")
     public static Type glowFoodsListToken = new TypeToken<List<String>>(){}.getType();
     @SuppressWarnings("all")
+    public static Type foxglowDurationToken = new TypeToken<Integer>(){}.getType();
+    @SuppressWarnings("all")
+    public static Type playerGlowToken = new TypeToken<Boolean>(){}.getType();
+    @SuppressWarnings("all")
+    public static Type customColorGlowToken = new TypeToken<Boolean>(){}.getType();
+    @SuppressWarnings("all")
+    public static Type randomColorGlowToken = new TypeToken<Boolean>(){}.getType();
 
     static Gson gson = new Gson();
 
@@ -41,6 +48,10 @@ public class DataSaver {
 
             datafileWriter.write(head);
             datafileWriter.append(glowFoodsList);
+            datafileWriter.append(String.valueOf(FoxGlow.FOXGLOW_DURATION));
+            datafileWriter.append(String.valueOf(FoxGlow.PLAYERGLOW));
+            datafileWriter.append(String.valueOf(FoxGlow.CUSTOM_COLOR_GLOW));
+            datafileWriter.append(String.valueOf(FoxGlow.RANDOM_COLOR_GLOW));
 
             datafileWriter.close();
         } catch (IOException e) {
@@ -88,6 +99,94 @@ public class DataSaver {
             LOGGER.error("There was an error while reading on the file");
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public static int getFoxglowDuration(){
+        try {
+            FileReader file = new FileReader(PATH);
+            String line = getFileLine(3, file);
+            if(line.equalsIgnoreCase("ERROR001-NOLINEFOUND")){
+                return 10;
+            }
+            int value = gson.fromJson(line, foxglowDurationToken);
+            return value;
+        } catch (NoSuchElementException e){
+            return 10;
+        } catch (IOException e) {
+            LOGGER.error("There was an error trying to read the data on the file!");
+            e.printStackTrace();
+            return 10;
+        } catch (Exception e){
+            LOGGER.error("There was an error while reading on the file");
+            e.printStackTrace();
+            return 10;
+        }
+    }
+
+    public static boolean getPlayerGlow(){
+        try {
+            FileReader file = new FileReader(PATH);
+            String line = getFileLine(4, file);
+            if(line.equalsIgnoreCase("ERROR001-NOLINEFOUND")){
+                return true;
+            }
+            boolean value = gson.fromJson(line, playerGlowToken);
+            return value;
+        } catch (NoSuchElementException e){
+            return true;
+        } catch (IOException e) {
+            LOGGER.error("There was an error trying to read the data on the file!");
+            e.printStackTrace();
+            return true;
+        } catch (Exception e){
+            LOGGER.error("There was an error while reading on the file");
+            e.printStackTrace();
+            return true;
+        }
+    }
+
+    public static boolean getCustomColorGlow(){
+        try {
+            FileReader file = new FileReader(PATH);
+            String line = getFileLine(4, file);
+            if(line.equalsIgnoreCase("ERROR001-NOLINEFOUND")){
+                return true;
+            }
+            boolean value = gson.fromJson(line, customColorGlowToken);
+            return value;
+        } catch (NoSuchElementException e){
+            return true;
+        } catch (IOException e) {
+            LOGGER.error("There was an error trying to read the data on the file!");
+            e.printStackTrace();
+            return true;
+        } catch (Exception e){
+            LOGGER.error("There was an error while reading on the file");
+            e.printStackTrace();
+            return true;
+        }
+    }
+
+    public static boolean getRandomColorGlow(){
+        try {
+            FileReader file = new FileReader(PATH);
+            String line = getFileLine(4, file);
+            if(line.equalsIgnoreCase("ERROR001-NOLINEFOUND")){
+                return false;
+            }
+            boolean value = gson.fromJson(line, randomColorGlowToken);
+            return value;
+        } catch (NoSuchElementException e){
+            return false;
+        } catch (IOException e) {
+            LOGGER.error("There was an error trying to read the data on the file!");
+            e.printStackTrace();
+            return false;
+        } catch (Exception e){
+            LOGGER.error("There was an error while reading on the file");
+            e.printStackTrace();
+            return false;
         }
     }
 

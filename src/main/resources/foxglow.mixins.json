@@ -2,7 +2,7 @@
   "required": true,
   "package": "me.emafire003.dev.foxglow.mixin",
   "compatibilityLevel": "JAVA_16",
-  "refmap": "coloredglowlib.refmap.json",
+  "refmap": "foxglow.refmap.json",
   "mixins": [
     "FoxMixin",
     "PlayerMixin"
