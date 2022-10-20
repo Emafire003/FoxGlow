@@ -45,7 +45,7 @@ It's the same as on fabric but you have to use the `/foxglow set <gamerule> <val
 
 For example, to set the *foxglowDuration* rule to 100, you will need to do this:
 
-`/foxglow set foxglowDuration 100`
+`/foxglow config set foxglowDuration 100`
 
 (The adding items to the list of items that can make foxes/player glow when eaten is exactly the same so scroll above)
 
