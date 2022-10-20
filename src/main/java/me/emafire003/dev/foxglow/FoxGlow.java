@@ -121,16 +121,33 @@ public class FoxGlow {
 
 	/**This method will add a new glowfood (an item that will make foxes/player glow)
 	 *
-	 * @param item The item that will make player/foxes glow*/
-	public static void addGlowFood(Item item){
-		glowFoodsList.add(ForgeRegistries.ITEMS.getKey(item));
+	 * @param item The item that will make player/foxes glow
+	 * @return Returns false if the item is already in the glowfood item list, skipping adding it again,
+	 * 			returns true if the item is new and thus gets added to the list
+	 * */
+	public static boolean addGlowFood(Item item){
+		if(glowFoodsList.contains(ForgeRegistries.ITEMS.getKey(item))){
+			return false;
+		}else{
+			glowFoodsList.add(ForgeRegistries.ITEMS.getKey(item));
+			return true;
+		}
+
 	}
 
 	/**This method will remove a glowfood (an item that will make foxes/player glow)
 	 *
-	 * @param item The item that will make player/foxes glow*/
-	public static void removeGlowFood(Item item){
-		glowFoodsList.remove(ForgeRegistries.ITEMS.getKey(item));
+	 * @param item The item that will make player/foxes glow
+	 * @return Returns false if the item is already not in the glowfood item list,
+	 * 	 * 	 	returns true if the item is in the list and thus gets removed*/
+	public static boolean removeGlowFood(Item item){
+		if(!glowFoodsList.contains(ForgeRegistries.ITEMS.getKey(item))){
+			return false;
+		}else{
+			glowFoodsList.remove(ForgeRegistries.ITEMS.getKey(item));
+			return true;
+		}
+
 	}
 
 	/**This method will return the list of all the items that make
