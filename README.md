@@ -36,7 +36,7 @@ To add an item to the list of items that can make foxes/player glow when eaten y
 Where <item> is the namespace of something, for example to make Golden Apples a "glowfood" you will do this: `/foxglow addGlowFood minecraft:golden_apple`
 The cool thing is that it **support other mod's items as well!!!**, so if you have a mod that adds a Glow Berry juice or something, you can add it like that!
 
-On this note, if you are a developer, you can use the `FoxGlow.addGlowFood(Item item)` method to add your mod's items by default. (Javadocs are present in the code)
+On this note, if you are a developer, you can use the `FoxGlow.addGlowFood(Item item)` method to add your mod's items by default. (Javadocs are present in the code). To add the mod as dependency see https://docs.modrinth.com/docs/tutorials/maven/
 
 The remove the items, you can use `/foxglow removeGlowFood <item>`, same thing for devs: `FoxGlow.removeGlowFood(Item item)`
 
