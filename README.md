@@ -1,9 +1,9 @@
 # FoxGlow
-![Downloads CurseForge](https://cf.way2muchnoise.eu/full_foxglow_downloads.svg?badge_style=flat)
-![Modrinth](https://img.shields.io/modrinth/dt/foxglow?color=green&label=Modrinth%20downloads&style=flat-square)
 ![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/fabric_vector.svg)
 ![fabric-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/requires/fabric-api_vector.svg)
 ![forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/forge_vector.svg)
+![Downloads CurseForge](https://cf.way2muchnoise.eu/full_foxglow_downloads.svg?badge_style=flat)
+![Modrinth](https://img.shields.io/modrinth/dt/foxglow?color=green&label=Modrinth%20downloads&style=flat-square)
 
 This mod makes foxes and players glow when they eat Glow Berries, or other items that should make the player glow! Simple right? This should be in vanilla, anyway you can have it this way now!
 
