@@ -1,5 +1,6 @@
 {
-  "gamerule.foxGlowDuration": "[FoxGlow] Durée de l'effet Surbrillance sur les renards (secondes) ",
-  "gamerule.doPlayersGlow": "[FoxGlow]  Activer l'effet Surbillance des baies lumineuses pour les joueurs. "
-
+  "gamerule.foxGlowDuration": "[FoxGlow] Durée de l'effet Surbrillance sur les renards (secondes)",
+  "gamerule.doPlayersGlow": "[FoxGlow] Activer l'effet Surbillance des baies lumineuses pour les joueurs."
+  "gamerule.customColorGlow": "[FoxGlow] Activer une couleur personnalisée pour l'effet de Surbrillance pour les joueurs et les renards (#eda205)",
+  "gamerule.randomColorGlow": "[FoxGlow] Utilisez une couleur personnalisée aléatoire pour l'effet de Surbrillance si customColorGlow est activé"
 }
