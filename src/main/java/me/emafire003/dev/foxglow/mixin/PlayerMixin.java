@@ -9,8 +9,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -35,8 +35,8 @@ public abstract class PlayerMixin extends LivingEntity {
             ServerWorld sworld = (ServerWorld) world;
 
             //Checks if the item eaten is the glowberry/a glowfood item & if the playerglow is active
-            if(FoxGlow.getGlowFoodsList().contains(Registry.ITEM.getId(stack.getItem())) && sworld.getGameRules().getBoolean(PLAYERGLOW)){
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 0, true, false));
+            if(FoxGlow.getGlowFoodsList().contains(Registries.ITEM.getId(stack.getItem())) && sworld.getGameRules().getBoolean(PLAYERGLOW)){
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20, 0, true, false));
 
                 //checks if custom color glow is enabled
                 if(FabricLoader.getInstance().isModLoaded("coloredglowlib")) {
@@ -44,8 +44,8 @@ public abstract class PlayerMixin extends LivingEntity {
                 }
 
                 if(FoxGlow.getAP1()){
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
-                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
+                    this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
                 }
 
             }

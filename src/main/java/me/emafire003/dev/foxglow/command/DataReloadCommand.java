@@ -18,16 +18,16 @@ public class DataReloadCommand implements FoxGlowCommand {
     private int reload(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
         ServerCommandSource source = context.getSource();
         DataSaver.getGlowFoodsList();
-        source.sendFeedback(Text.literal("§6[FoxGlow] §fThe data has been reloaded!"), true);
+        source.sendFeedback(() -> Text.literal("§6[FoxGlow] §fThe data has been reloaded!"), true);
         return 1;
     }
 
     private int getGlowItems(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
         ServerCommandSource source = context.getSource();
         DataSaver.getGlowFoodsList();
-        source.sendFeedback(Text.literal("§6[FoxGlow] §fHere is the list of items that currently make foxes/players glow:"), true);
+        source.sendFeedback(() -> Text.literal("§6[FoxGlow] §fHere is the list of items that currently make foxes/players glow:"), true);
         for(Identifier id : FoxGlow.getGlowFoodsList()){
-            source.sendFeedback(Text.literal("§b"+id.toString()), false);
+            source.sendFeedback(() -> Text.literal("§b"+id.toString()), false);
         }
         return 1;
     }

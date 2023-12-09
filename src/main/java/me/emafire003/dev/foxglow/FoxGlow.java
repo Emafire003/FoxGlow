@@ -10,8 +10,8 @@ import net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import net.minecraft.world.GameRules;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +50,7 @@ public class FoxGlow implements ModInitializer {
 		if(cgl_loaded){
 			ColoredGlowLibCompat.getLib().setPerEntityTypeColor(true);
 		}
-		glowFoodsList.add(Registry.ITEM.getId(Items.GLOW_BERRIES));
+		glowFoodsList.add(Registries.ITEM.getId(Items.GLOW_BERRIES));
 		getValuesFromFile();
 		CommandRegistrationCallback.EVENT.register(FoxGlowCommands::registerCommands);
 	}
@@ -83,7 +83,7 @@ public class FoxGlow implements ModInitializer {
 				//This is done because I need to initialize the glowFoodList map with the glow berries by default,
 				//but if just added all the entries each time I would be also adding the glow berries, which
 				//would continue to multiply inside the list
-				food_list.remove(Registry.ITEM.getId(Items.GLOW_BERRIES));
+				food_list.remove(Registries.ITEM.getId(Items.GLOW_BERRIES));
 
 				glowFoodsList.addAll(food_list);
 			}
@@ -109,10 +109,10 @@ public class FoxGlow implements ModInitializer {
 	 * 			returns true if the item is new and thus gets added to the list
 	 * */
 	public static boolean addGlowFood(Item item){
-		if(glowFoodsList.contains(Registry.ITEM.getId(item))){
+		if(glowFoodsList.contains(Registries.ITEM.getId(item))){
 			return false;
 		}else{
-			glowFoodsList.add(Registry.ITEM.getId(item));
+			glowFoodsList.add(Registries.ITEM.getId(item));
 			return true;
 		}
 
@@ -124,10 +124,10 @@ public class FoxGlow implements ModInitializer {
 	 * @return Returns false if the item is already not in the glowfood item list,
 	 * 	 * 	 	returns true if the item is in the list and thus gets removed*/
 	public static boolean removeGlowFood(Item item){
-		if(!glowFoodsList.contains(Registry.ITEM.getId(item))){
+		if(!glowFoodsList.contains(Registries.ITEM.getId(item))){
 			return false;
 		}else{
-			glowFoodsList.remove(Registry.ITEM.getId(item));
+			glowFoodsList.remove(Registries.ITEM.getId(item));
 			return true;
 		}
 

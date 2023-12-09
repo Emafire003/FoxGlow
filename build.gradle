@@ -35,7 +35,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//ColoredGlowLib
-	modImplementation "maven.modrinth:coloredglowlib:2.0.1"
+	modImplementation "maven.modrinth:coloredglowlib:2.2.4+fabric_1.20.4"
 	//include "maven.modrinth:coloredglowlib:1.4.0"
 
 	// Uncomment the following line to enable the deprecated Fabric API modules. 

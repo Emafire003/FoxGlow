@@ -9,7 +9,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.FoxEntity;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.registry.Registries;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 //Слава Украïнi!
@@ -31,15 +31,15 @@ public abstract class FoxMixin extends AnimalEntity {
     @Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;finishUsing(Lnet/minecraft/world/World;Lnet/minecraft/entity/LivingEntity;)Lnet/minecraft/item/ItemStack;"))
     protected void injectInTickMovementMethod(CallbackInfo ci) {
 
-        if(FoxGlow.getGlowFoodsList().contains(Registry.ITEM.getId(this.getEquippedStack(EquipmentSlot.MAINHAND).getItem()))){
-            this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
+        if(FoxGlow.getGlowFoodsList().contains(Registries.ITEM.getId(this.getEquippedStack(EquipmentSlot.MAINHAND).getItem()))){
+            this.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
 
             if(FabricLoader.getInstance().isModLoaded("coloredglowlib")){
-                ColoredGlowLibCompat.doColoredGlowLibStuff(world, ((FoxEntity)(Object)this));
+                ColoredGlowLibCompat.doColoredGlowLibStuff(getWorld(), ((FoxEntity)(Object)this));
             }
             if(FoxGlow.getAP1()){
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
-                this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.world.getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
+                this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
             }
 
         }

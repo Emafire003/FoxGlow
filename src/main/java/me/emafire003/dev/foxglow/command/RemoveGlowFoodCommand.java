@@ -8,10 +8,10 @@ import me.emafire003.dev.foxglow.util.DataSaver;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.ItemStackArgumentType;
 import net.minecraft.item.Item;
+Uimport net.minecraft.registry.Registries;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.minecraft.util.registry.Registry;
 
 
 public class RemoveGlowFoodCommand implements FoxGlowCommand {
@@ -27,11 +27,11 @@ public class RemoveGlowFoodCommand implements FoxGlowCommand {
         ServerCommandSource source = context.getSource();
 
         try{
-            if(FoxGlow.getGlowFoodsList().contains(Registry.ITEM.getId(item))){
+            if(FoxGlow.getGlowFoodsList().contains(Registries.ITEM.getId(item))){
                 FoxGlow.removeGlowFood(item);
-                source.sendFeedback(Text.literal("§6[FoxGlow] §fThe item §c" + item.toString() + " §fwill no longer make foxes/player glow when eaten!"), false);
+                source.sendFeedback(() -> Text.literal("§6[FoxGlow] §fThe item §c" + item.toString() + " §fwill no longer make foxes/player glow when eaten!"), false);
             }else{
-                source.sendFeedback(Text.literal("§6[FoxGlow] §cThe item §b" + item.toString() + " §cdoes not make foxes/player glow when eaten already!"), false);
+                source.sendFeedback(() -> Text.literal("§6[FoxGlow] §cThe item §b" + item.toString() + " §cdoes not make foxes/player glow when eaten already!"), false);
             }
             DataSaver.write();
         }catch (Exception e){
