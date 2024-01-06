@@ -27,7 +27,7 @@ You can toggle the effect for players using `doPlayersGlow`. The value `true` wi
 For example, to disable the effect
 `/gamerule doPlayersGlow false`
 
-Similar to this one, there also are the `customColorGlow` which determines weather or not they glow effect should have a custom color, and `customColorGlow` which determines weather the custom colored above should be random or not. (both of which require [ColoredGlowLib](https://www.curseforge.com/minecraft/mc-mods/coloredglowlib) to work)
+Similar to this one, there also are the `customColorGlow` which determines weather or not they glow effect should have a custom color, and `randomColorGlow` which determines weather the custom color above should be random or not. (both of which require [ColoredGlowLib](https://www.curseforge.com/minecraft/mc-mods/coloredglowlib) to work)
 
 To add an item to the list of items that can make foxes/player glow when eaten you will need to use the commmand:
 
