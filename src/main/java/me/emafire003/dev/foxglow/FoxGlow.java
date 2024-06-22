@@ -2,7 +2,6 @@ package me.emafire003.dev.foxglow;
 
 import me.emafire003.dev.foxglow.command.FoxGlowCommands;
 import me.emafire003.dev.foxglow.util.DataSaver;
-import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
@@ -29,16 +28,15 @@ public class FoxGlow implements ModInitializer {
 	public static String MOD_ID = "foxglow";
 	private static boolean april1_on = false;
 	private static boolean cgl_loaded = false;
-	public static String foxcolor = "eda304";
 	public static final Path PATH = FabricLoader.getInstance().getConfigDir();
-	private static List<Identifier> glowFoodsList = new ArrayList<>();
+	private static final List<Identifier> glowFoodsList = new ArrayList<>();
 
 	public static Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	@Override
 	public void onInitialize() {
 
-		LOGGER.info("Initializing!");
+		LOGGER.debug("Initializing!");
 		LocalDate currentDate = LocalDate.now();
 		int day = currentDate.getDayOfMonth();
 		Month month = currentDate.getMonth();
@@ -47,12 +45,10 @@ public class FoxGlow implements ModInitializer {
 			LOGGER.info("Yes, april 1st");
 		}
 		cgl_loaded = FabricLoader.getInstance().isModLoaded("coloredglowlib");
-		if(cgl_loaded){
-			ColoredGlowLibCompat.getLib().setPerEntityTypeColor(true);
-		}
 		glowFoodsList.add(Registries.ITEM.getId(Items.GLOW_BERRIES));
 		getValuesFromFile();
 		CommandRegistrationCallback.EVENT.register(FoxGlowCommands::registerCommands);
+
 	}
 
 	public static List<Identifier> convertToIdList(List<String> string_list){
@@ -76,7 +72,7 @@ public class FoxGlow implements ModInitializer {
 
 	private  void getValuesFromFile(){
 		try{
-			LOGGER.info("Getting variables values from the data file...");
+			LOGGER.debug("Getting variables values from the data file...");
 			DataSaver.createFile();
 			List<Identifier> food_list = DataSaver.getGlowFoodsList();
 			if(food_list != null && !food_list.isEmpty()){
@@ -87,7 +83,7 @@ public class FoxGlow implements ModInitializer {
 
 				glowFoodsList.addAll(food_list);
 			}
-			LOGGER.info("Done!");
+			LOGGER.debug("Done!");
 		}catch (Exception e){
 			LOGGER.error("There was an error while getting the values from the file onto the mod");
 			e.printStackTrace();

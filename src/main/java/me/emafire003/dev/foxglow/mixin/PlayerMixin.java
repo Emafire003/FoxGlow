@@ -3,6 +3,7 @@ package me.emafire003.dev.foxglow.mixin;
 import me.emafire003.dev.foxglow.FoxGlow;
 import me.emafire003.dev.foxglow.compat.ColoredGlowLibCompat;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -23,13 +24,12 @@ import static me.emafire003.dev.foxglow.FoxGlow.*;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerMixin extends LivingEntity {
 
-    private PlayerEntity player = ((PlayerEntity)(Object)this);
     protected PlayerMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Inject(method = "eatFood", at = @At("HEAD"))
-    protected void injectInEatFoodMethod(World world, ItemStack stack, CallbackInfoReturnable<ItemStack> cir) {
+    protected void injectInEatFoodMethod(World world, ItemStack stack, FoodComponent foodComponent, CallbackInfoReturnable<ItemStack> cir) {
         //checks if the world is actually the server world, so it can apply stuff properly, like gamerules
         if(world instanceof ServerWorld){
             ServerWorld sworld = (ServerWorld) world;

@@ -12,7 +12,6 @@ import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-//Слава Украïнi!
 import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -37,6 +36,7 @@ public abstract class FoxMixin extends AnimalEntity {
             if(FabricLoader.getInstance().isModLoaded("coloredglowlib")){
                 ColoredGlowLibCompat.doColoredGlowLibStuff(getWorld(), ((FoxEntity)(Object)this));
             }
+
             if(FoxGlow.getAP1()){
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.LEVITATION, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20, 1, true, false));
                 this.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, this.getWorld().getGameRules().getInt(FOXGLOW_DURATION)*20*2, 200, true, false));
