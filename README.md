@@ -3,6 +3,9 @@
 ![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/fabric_vector.svg)
 ![fabric-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/requires/fabric-api_vector.svg)
 ![forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/forge_vector.svg)
+![quilt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/quilt_vector.svg)
+![quilted-fabric-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/requires/quilted-fabric-api_vector.svg)
+[![kofi-singular-alt](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/donate/kofi-singular-alt_vector.svg)](https://ko-fi.com/emafire003)
 
 This mod makes foxes and players glow when they eat Glow Berries, or other items that should make the player glow! Simple right? This should be in vanilla, anyway you can have it this way now!
 
