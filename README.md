@@ -1,6 +1,5 @@
-# FoxGlow
-![Downloads CurseForge](https://cf.way2muchnoise.eu/full_foxglow_downloads.svg?badge_style=flat)
-![Modrinth](https://img.shields.io/modrinth/dt/foxglow?color=green&label=Modrinth%20downloads&style=flat-square)
+![foxglow_with_foxes_optimized](https://github.com/user-attachments/assets/dfdf4edf-3ef7-45d1-ace2-d6ce7b7d2a4a)
+#
 ![fabric](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/fabric_vector.svg)
 ![fabric-api](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/requires/fabric-api_vector.svg)
 ![forge](https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@2/assets/cozy/supported/forge_vector.svg)
@@ -9,7 +8,7 @@ This mod makes foxes and players glow when they eat Glow Berries, or other items
 
 ![foxglow](https://user-images.githubusercontent.com/29462910/153724910-88b14423-4768-4f78-b801-4142d1dffbe9.gif)
 
-[![bisecthosting](https://www.bisecthosting.com/partners/custom-banners/e9c85d2a-cafa-4e2f-98bf-4f62bd9e951c.png)](https://www.bisecthosting.com/LightDev)
+[![bisecthosting](https://github.com/Emafire003/ColoredGlowLib/assets/29462910/973c0c1a-062c-4c4a-aa04-f02e184fd5d7)](https://www.bisecthosting.com/LightDev)
 
 ### Configuration
 #### Fabric
@@ -54,7 +53,7 @@ Also, as side note there also are some localizations of the gamerules in the Wor
 ## Setup
 
 Just drop it inside your mods folder alongside [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api).
-You must be using the fabric loader, and not forge.
+If you want to custom glow colors, install [ColoredGlowLib](https://www.curseforge.com/minecraft/mc-mods/coloredglowlib)
 Also this mod can be installed only on the server if you wish, you don't necesserly need it on the client.
 
 ![fox1](https://user-images.githubusercontent.com/29462910/152815217-8ca8abcf-2dfe-4c20-8235-84013a047c1e.png)
