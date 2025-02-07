@@ -12,8 +12,6 @@ This mod makes foxes and players glow when they eat Glow Berries, or other items
 
 ![foxglow](https://user-images.githubusercontent.com/29462910/153724910-88b14423-4768-4f78-b801-4142d1dffbe9.gif)
 
-[![bisecthosting](https://github.com/Emafire003/ColoredGlowLib/assets/29462910/973c0c1a-062c-4c4a-aa04-f02e184fd5d7)](https://www.bisecthosting.com/LightDev)
-
 ### Configuration
 #### Fabric
 You can adjust the duration of the glow effect using the gamerule `foxGlowDuration`. It takes one parameter which is the duration in seconds. (Without decimals)
