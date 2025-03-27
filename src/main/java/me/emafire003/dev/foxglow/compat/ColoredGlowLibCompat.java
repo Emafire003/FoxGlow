@@ -5,8 +5,8 @@ import me.emafire003.dev.coloredglowlib.ColoredGlowLibMod;
 import me.emafire003.dev.coloredglowlib.util.ColorUtils;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.FoxEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.World;
 
 import static me.emafire003.dev.foxglow.FoxGlow.*;
 
@@ -20,7 +20,7 @@ public class ColoredGlowLibCompat {
         return ColorUtils.toHex(random.nextInt(254)+1, random.nextInt(254)+1, random.nextInt(254)+1);
     }
 
-    public static void doColoredGlowLibStuff(World world, Entity entity){
+    public static void doColoredGlowLibStuff(ServerWorld world, Entity entity){
         ColoredGlowLibAPI coloredGlowLib = ColoredGlowLibMod.getAPI();
         if(coloredGlowLib == null){
             return;

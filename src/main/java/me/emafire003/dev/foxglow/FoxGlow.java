@@ -139,8 +139,8 @@ public class FoxGlow implements ModInitializer {
 	public static final GameRules.Key<GameRules.IntRule> FOXGLOW_DURATION =
 			GameRuleRegistry.register("foxGlowDuration", GameRules.Category.MOBS, GameRuleFactory.createIntRule(10));
 
-	public static final GameRules.Key<GameRules.BooleanRule> PLAYERGLOW =
-			GameRuleRegistry.register("doPlayersGlow", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
+	public static final GameRules.Key<GameRules.BooleanRule> EVERYONE_GLOWS =
+			GameRuleRegistry.register("doesEveryoneGlow", GameRules.Category.PLAYER, GameRuleFactory.createBooleanRule(true));
 
 	public static final GameRules.Key<GameRules.BooleanRule> CUSTOM_COLOR_GLOW =
 			GameRuleRegistry.register("customColorGlow", GameRules.Category.MISC, GameRuleFactory.createBooleanRule(true));

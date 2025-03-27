@@ -4,8 +4,7 @@
   "package": "me.emafire003.dev.foxglow.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "FoxMixin",
-    "PlayerMixin"
+    "GlowyFoodMixin"
   ],
   "client": [
   ],
